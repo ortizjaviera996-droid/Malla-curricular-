@@ -1,10 +1,10 @@
-/* Variables CSS para una gestión de color sencilla */
+/* Variables CSS para una gestión de color sencilla - PALETA ROSADA */
 :root {
-    --primary-color: #2c3e50; /* Azul oscuro/grisáceo */
-    --secondary-color: #3498db; /* Azul vibrante */
-    --background-color: #ecf0f1; /* Gris claro */
-    --text-color: #34495e; /* Gris oscuro para texto */
-    --approved-color: #2ecc71; /* Verde para aprobado */
+    --primary-color: #f7cac9; /* Rosado claro/suave para el fondo de encabezado */
+    --secondary-color: #ea9999; /* Rosado medio/coral para énfasis */
+    --background-color: #fcfcfc; /* Blanco muy suave */
+    --text-color: #4a4a4a; /* Gris oscuro para texto */
+    --approved-color: #88c070; /* Verde suave para aprobado (mantenemos la claridad de estado) */
     --card-bg: #ffffff; /* Fondo de tarjeta blanco */
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
@@ -22,11 +22,12 @@ body {
 /* Encabezado */
 .header {
     background-color: var(--primary-color);
-    color: white;
+    color: var(--text-color); /* Texto oscuro sobre rosado claro */
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 6px var(--shadow-color);
     margin-bottom: 20px;
+    border-bottom: 3px solid var(--secondary-color);
 }
 
 .header h1 {
@@ -45,23 +46,23 @@ body {
     padding: 10px;
     margin-top: 30px;
     background-color: var(--primary-color);
-    color: white;
+    color: var(--text-color);
     font-size: 0.9em;
 }
 
 /* Contenedor Principal de la Malla */
 .curriculum-grid {
     display: flex;
-    overflow-x: auto; /* Permite desplazamiento horizontal en pantallas pequeñas */
+    overflow-x: auto;
     padding: 10px 20px 30px 20px;
-    gap: 15px; /* Espacio entre columnas de semestre */
-    scroll-snap-type: x mandatory; /* Para un mejor desplazamiento horizontal en móviles */
+    gap: 15px;
+    scroll-snap-type: x mandatory;
 }
 
 /* Columna de Semestre */
 .semester-column {
-    flex: 0 0 300px; /* Ancho fijo para cada columna */
-    background-color: #f7f9fb;
+    flex: 0 0 300px;
+    background-color: #f5f5f5; /* Gris muy claro */
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 5px var(--shadow-color);
@@ -69,7 +70,7 @@ body {
 }
 
 .semester-column h2 {
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Rosado medio */
     border-bottom: 3px solid var(--secondary-color);
     padding-bottom: 5px;
     margin-top: 0;
@@ -80,26 +81,26 @@ body {
 /* Tarjeta de Asignatura (Ramo) */
 .course-card {
     background-color: var(--card-bg);
-    border-left: 5px solid var(--secondary-color);
+    border-left: 5px solid var(--secondary-color); /* Rosado medio */
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 1px 3px var(--shadow-color);
-    user-select: none; /* Evita la selección de texto al hacer clic */
+    user-select: none;
 }
 
 .course-card:hover:not(.approved) {
-    background-color: #eaf6ff;
+    background-color: #fff0f0; /* Rosado más pálido al pasar el ratón */
     transform: translateY(-2px);
     box-shadow: 0 4px 6px var(--shadow-color);
 }
 
 /* Estado: Aprobado */
 .course-card.approved {
-    background-color: var(--approved-color);
-    border-left-color: #1e8449;
+    background-color: var(--approved-color); /* Verde suave */
+    border-left-color: #5b9047;
     color: white;
     text-decoration: line-through;
     opacity: 0.8;
@@ -108,21 +109,21 @@ body {
 }
 
 .course-card.approved:hover {
-    background-color: var(--approved-color); /* No cambia al pasar el ratón */
+    background-color: var(--approved-color);
     transform: none;
 }
 
 /* Estado: Bloqueado */
 .course-card.blocked {
-    border-left-color: #e74c3c; /* Rojo para bloqueado */
-    background-color: #fcecec;
+    border-left-color: #c0392b; /* Rojo para bloqueado */
+    background-color: #fdf5f5; /* Fondo muy claro con toque rosado */
     opacity: 0.6;
     cursor: not-allowed;
 }
 
 /* Estilos para el Modal/Mensaje de Bloqueo */
 .modal {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -130,12 +131,12 @@ body {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* Centrado vertical y horizontal */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -168,28 +169,28 @@ body {
 }
 
 #modalTitle {
-    color: #e74c3c; /* Rojo de advertencia */
+    color: #c0392b; /* Rojo de advertencia */
     margin-top: 0;
 }
 
 .motivational-message {
     font-style: italic;
-    color: var(--secondary-color);
+    color: var(--secondary-color); /* Rosado medio */
     border-top: 1px dashed #ccc;
     padding-top: 10px;
     margin-top: 15px;
 }
 
-/* Media Queries para Responsividad (ej. en tablets y móviles) */
+/* Media Queries para Responsividad */
 @media (max-width: 768px) {
     .curriculum-grid {
-        flex-direction: row; /* Mantiene el scroll horizontal */
+        flex-direction: row;
         gap: 10px;
         padding: 10px;
     }
 
     .semester-column {
-        flex: 0 0 90%; /* Ocupa casi todo el ancho para facilitar la lectura */
+        flex: 0 0 90%;
         margin: 0 auto;
         padding: 10px;
     }
