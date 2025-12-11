@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular - Derecho</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
 
+    <header class="header">
+        <h1>Malla Curricular Interactiva de Derecho</h1>
+        <p>Haz clic en una asignatura para marcarla como aprobada. ¡A seguir avanzando!</p>
+    </header>
+
+    <main class="curriculum-grid" id="curriculumGrid">
+        </main>
+
+    <footer class="footer">
+        <p>Proyecto interactivo creado con HTML, CSS y JavaScript.</p>
+    </footer>
+
+    <div id="blockerMessage" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle">Ramo Bloqueado</h3>
+            <p id="modalText"></p>
+            <p class="motivational-message">¡No te rindas! Un abogado/a nunca se detiene. ¡A estudiar esos requisitos!</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html
